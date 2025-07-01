@@ -86,7 +86,7 @@ function GamePage() {
   useEffect(() => {
     if (username && result !== null) {
       const timeout = setTimeout(() => {
-        fetch(`http://localhost:5000/api/score/username/${username}`)
+        fetch(`https://rock-paper-scissors-multiplayer-server.onrender.com/api/score/username/${username}`)
           .then((res) => res.json())
           .then((data) => setScore(data));
       }, 500);
