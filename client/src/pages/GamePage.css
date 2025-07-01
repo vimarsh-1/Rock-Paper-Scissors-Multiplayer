@@ -1,0 +1,160 @@
+.usernamescreen {
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.RPStitle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(to right, #000000, #434343);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+}
+.firstscreenbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.firstscreen {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+}
+.GameScreenParent {
+  text-align: center;
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.Gamescreencontent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+.enterusernametitle {
+  font-size: 35px;
+  color: whitesmoke;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 50px;
+}
+.titletext {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.usernameinputbox {
+  width: 25%;
+  height: 7vh;
+  font-family: "Poppins", sans-serif;
+  border-radius: 30px;
+  border: 2px solid white;
+  /* background: transparent; */
+  background: linear-gradient(to right, #000000, #434343);
+  color: whitesmoke;
+  text-align: center;
+  font-size: large;
+}
+.usernameinputbox::placeholder {
+  color: white;
+  font-size: large;
+}
+.startbutton {
+  width: 15%;
+  height: 7vh;
+  font-family: "Poppins", sans-serif;
+  border-radius: 30px;
+  color: whitesmoke;
+  font-size: 17px;
+  border: 2px solid white;
+  background: linear-gradient(to right, #000000, #434343);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.startbutton:hover {
+  background: linear-gradient(to left, #000000, #434343);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.startbutton:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transition: background-color 0.3s ease;
+}
+.playernames {
+  font-size: 30px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+.gamebuttons {
+  background: linear-gradient(to top, #0f0c29, #302b63, #24243e);
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  color: white;
+  font-size: xx-large;
+  margin-left: 15px;
+  border-radius: 20px;
+}
+.mainplayer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.scoreboardchild {
+  position: relative;
+  left: 38px;
+}
+.opponent {
+  position: relative;
+  left: 50px;
+}
+.namestab {
+  width: auto;
+  height: auto;
+  padding: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  background: linear-gradient(to top, #141e30, #243b55);
+}
+.wins {
+  width: auto;
+  height: auto;
+  background: linear-gradient(45deg, #00c853, #64dd17);
+  padding: 24px;
+  border-radius: 20px;
+}
+.loses {
+  width: auto;
+  height: auto;
+  background: linear-gradient(315deg, #b22222, #ff6347);
+  padding: 24px;
+  border-radius: 20px;
+}
+.draw {
+  width: auto;
+  height: auto;
+  background: linear-gradient(to right, #696969, #404040);
+  padding: 24px;
+  border-radius: 20px;
+}
+.scoreboard {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  gap: 10px;
+}
