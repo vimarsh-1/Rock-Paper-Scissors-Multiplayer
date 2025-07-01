@@ -17,6 +17,24 @@ function GamePage() {
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState({ wins: 0, losses: 0, draws: 0 });
   const [myId, setMyId] = useState(null);
+  const victoryAudio = new Audio("/sounds/winner.mp3");
+  const lossAudio = new Audio("/sounds/looser.mp3");
+  const drawAudio = new Audio("/sounds/draw.mp3");
+  victoryAudio.volume = 0.7;
+  lossAudio.volume = 0.7;
+  drawAudio.volume = 0.7;
+
+  useEffect(() => {
+    if (!myId || result === null) return;
+
+    if (result === "draw") {
+      drawAudio.play();
+    } else if (result === myId) {
+      victoryAudio.play();
+    } else {
+      lossAudio.play();
+    }
+  }, [result, myId]);
 
   useEffect(() => {
     socket.on("connect", () => {
@@ -179,108 +197,80 @@ function GamePage() {
         <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
       </div>
       <div className="Gamescreencontent">
-        {/* <div className="titletext">
-        <BlurText
-          text="Rock Paper Scissors !🎮"
-          delay={150}
-          animateBy="words"
-          direction="top"
-          onAnimationComplete={handleAnimationComplete}
-          className="enterusernametitle"
-        />
-        </div> */}
         <span className="RPStitle">Rock Paper Scissors !🎮</span>
         {room ? (
           <>
             {" "}
             <div className="mainplayer">
-              <div className="scoreboardparent">
-                <div className="namestab">
-                  <span className="playernames">
-                    {/* Room: {room} |*/} 🛡️You : <br /> {username}{" "}
-                    {/*| Opponent : {opponentName}*/}
-                  </span>{" "}
-                </div>
-              </div>
-              <div className="scoreboardchild">
-                {/* <span
-                  className="playernames"
-                  style={{ textDecoration: "underline", color: "yellow" }}
-                >
-                  Your Score
-                </span>{" "} */}
-                <GradientText
-                  colors={[
-                    "#40ffaa",
-                    "#4079ff",
-                    "#40ffaa",
-                    "#4079ff",
-                    "#40ffaa",
-                  ]}
-                  animationSpeed={3}
-                  showBorder={false}
-                  className="playernames"
-                >
-                  Your Score <br />
-                  ----------
-                </GradientText>
-                <div className="scoreboard">
-                  <div className="wins">
-                    <span style={{ color: "white" }}>Wins: {score.wins} </span>{" "}
-                  </div>
-                  <div className="loses">
-                    <span
-                      style={{
-                        color: "white",
-                      }}
-                    >
-                      Losses: {score.losses}{" "}
-                    </span>
-                  </div>
-                  <div className="draw">
-                    <span
-                      style={{
-                        color: "darkgray",
-                      }}
-                    >
-                      {" "}
-                      Draws: {score.draws}
-                    </span>
+              <div className="scoreboardcentered">
+                <div className="scoreboardparent">
+                  <div className="namestab">
+                    <span className="playernames">
+                      {/* Room: {room} |*/} 🛡️You : <br /> {username}{" "}
+                      {/*| Opponent : {opponentName}*/}
+                    </span>{" "}
                   </div>
                 </div>
               </div>
-              <div className="opponent">
-                <div className="namestab">
-                  <span className="playernames">
-                   ⚔️Opponent : <br />
-                    {opponentName}
-                  </span>
+              <div className="scoreboardcenterd">
+                <div className="scoreboardchild">
+                  <GradientText
+                    colors={[
+                      "#40ffaa",
+                      "#4079ff",
+                      "#40ffaa",
+                      "#4079ff",
+                      "#40ffaa",
+                    ]}
+                    animationSpeed={3}
+                    showBorder={false}
+                    className="playernames"
+                  >
+                    ⚔️ BATTLE REPORT<br />
+                    --------------------------------
+                  </GradientText>
+                  <div className="scoreboard">
+                    <div className="wins">
+                      <span style={{ color: "white" }}>
+                        Wins: {score.wins}{" "}
+                      </span>{" "}
+                    </div>
+                    <div className="loses">
+                      <span
+                        style={{
+                          color: "white",
+                        }}
+                      >
+                        Losses: {score.losses}{" "}
+                      </span>
+                    </div>
+                    <div className="draw">
+                      <span
+                        style={{
+                          color: "darkgray",
+                        }}
+                      >
+                        {" "}
+                        Draws: {score.draws}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="opponentcentered">
+                <div className="opponent">
+                  <div className="namestab">
+                    <span className="playernames">
+                      ⚔️Opponent : <br />
+                      {opponentName}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
             <br /> <br />
-            {/* <div className="scoreboardparent">
-              <span
-                className="playernames"
-                style={{ textDecoration: "underline", color: "yellow" }}
-              >
-                Your Score
-              </span>{" "}
-              <br />
-              <br />
-              <span
-                className="playernames"
-                style={{ textDecoration: "underline", color: "red" }}
-              >
-                Wins: {score.wins} | Losses: {score.losses} | Draws:{" "}
-                {score.draws}
-              </span>
-            </div> */}
             {!move ? (
-              <div>
-                <br />
-                <br />
-                <br />
+              <div className="gamebuttonsparent">
                 <button
                   onClick={() => playMove("rock")}
                   className="gamebuttons"

@@ -101,6 +101,7 @@
 }
 .gamebuttons {
   background: linear-gradient(to top, #0f0c29, #302b63, #24243e);
+  border: 1px solid #66ffff;
   height: 100px;
   width: 100px;
   cursor: pointer;
@@ -130,11 +131,13 @@
   display: flex;
   justify-content: center;
   border-radius: 20px;
+  border: 1px solid #66ffff;
   background: linear-gradient(to top, #141e30, #243b55);
 }
 .wins {
   width: auto;
   height: auto;
+  border: 1px solid #66ffff;
   background: linear-gradient(45deg, #00c853, #64dd17);
   padding: 24px;
   border-radius: 20px;
@@ -142,6 +145,7 @@
 .loses {
   width: auto;
   height: auto;
+  border: 1px solid #66ffff;
   background: linear-gradient(315deg, #b22222, #ff6347);
   padding: 24px;
   border-radius: 20px;
@@ -149,6 +153,7 @@
 .draw {
   width: auto;
   height: auto;
+  border: 1px solid #66ffff;
   background: linear-gradient(to right, #696969, #404040);
   padding: 24px;
   border-radius: 20px;
@@ -157,4 +162,51 @@
   font-family: "Poppins", sans-serif;
   display: flex;
   gap: 10px;
+}
+.gamebuttonsparent{
+  position: relative;
+  top: 60px;
+}
+
+/*mobile-responsiveness*/
+@media (max-width: 768px) {
+  .enterusernametitle {
+    justify-content: center;
+  }
+  .usernameinputbox {
+    width: auto;
+    padding: 0px 30px;
+  }
+  .startbutton {
+    width: auto;
+    padding: 0px 50px;
+  }
+  .GameScreenParent{
+    overflow: auto;
+  }
+  .mainplayer{
+    flex-direction: column;
+    gap: 50px;
+  }
+  .scoreboardparent{
+    width: max-content;
+  }
+  .scoreboardcentered, .opponentcentered, .scoreboardcenterd{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .opponent{
+    left: 0;
+    width: max-content;
+  }
+  .scoreboardchild{
+    left: 0;
+  }
+  .gamebuttons{
+    margin-bottom: 10px;
+  }
+  .gamebuttonsparent{
+    top: 0;
+  }
 }
